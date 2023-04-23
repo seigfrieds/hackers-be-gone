@@ -14,8 +14,9 @@ function generatePassword()
         let word = dictionary.words[Math.floor(Math.random()*(dictionary.words.length))];
         boxHtml += word + "_";
     }
+    boxHtml += dictionary.words[Math.floor(Math.random()*(dictionary.words.length))];
 
-    boxHtml += dictionary.words[Math.floor(Math.random()*(dictionary.words.length))] + "</p>";
+    boxHtml += "</p>";
 
     passwordBox.innerHTML = boxHtml;
 }
