@@ -2,8 +2,10 @@
 
 function generateWord(wordCase, dictionary)
 {
+    //generate random LOWER CASE word
     let word = dictionary.words[Math.floor(Math.random()*(dictionary.words.length))];
 
+    //update word to proper word case if needed
     if (wordCase === "titlecase") 
         word = word.charAt(0).toUpperCase() + word.substring(1);
     else if (wordCase === "uppercase")
@@ -14,12 +16,19 @@ function generateWord(wordCase, dictionary)
 
 function generatePassword()
 {
+    //list of words used for password generation
     let dictionary = new Dictionary();
 
+    /**
+     * Get user chosen parameters for the password
+     */
     let numWords = document.getElementById("wordSlider").value;
     let wordSeparator = document.getElementById("wordSeparatorInput").value;
     let wordCase = document.getElementById("wordCaseSelect").value;
 
+    /**
+     * Generate password, and its html
+     */
     let boxHtml = "<p>";
 
     for (let i = 0; i < numWords-1; i++)
@@ -28,6 +37,9 @@ function generatePassword()
 
     boxHtml += "</p>";
 
+    /**
+     * Output generated password 
+     */
     document.getElementById("passwordBox").innerHTML = boxHtml;
 }
 
@@ -40,6 +52,8 @@ document.getElementById("generatePassword").addEventListener("click", generatePa
 document.getElementById("wordSlider").addEventListener("input", updateNumWords);
 
 /**
+ * Dictionary - encapsulate array of list of words
+ * 
  * VERY
  * LONG
  * CODE
