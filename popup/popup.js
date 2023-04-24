@@ -1,5 +1,17 @@
 "use strict";
 
+function generateWord(wordCase, dictionary)
+{
+    let word = dictionary.words[Math.floor(Math.random()*(dictionary.words.length))];
+
+    if (wordCase === "titlecase") 
+        word = word.charAt(0).toUpperCase() + word.substring(1);
+    else if (wordCase === "uppercase")
+        word = word.toUpperCase();
+
+    return word;
+}
+
 function generatePassword()
 {
     let dictionary = new Dictionary();
@@ -12,24 +24,8 @@ function generatePassword()
     let boxHtml = "<p>";
 
     for (let i = 0; i < numWords-1; i++)
-    {
-        let word = dictionary.words[Math.floor(Math.random()*(dictionary.words.length))];
-
-        if (wordCase === "titlecase") 
-            word = word.charAt(0).toUpperCase() + word.substring(1);
-        else if (wordCase === "uppercase")
-            word = word.toUpperCase();
-
-        boxHtml += word + wordSeparator;
-    }
-    let word = dictionary.words[Math.floor(Math.random()*(dictionary.words.length))];
-
-    if (wordCase === "titlecase") 
-        word = word.charAt(0).toUpperCase() + word.substring(1);
-    else if (wordCase === "uppercase")
-        word = word.toUpperCase();
-
-    boxHtml += word;
+        boxHtml += generateWord(wordCase, dictionary) + wordSeparator;
+    boxHtml += generateWord(wordCase, dictionary);
 
     boxHtml += "</p>";
 
