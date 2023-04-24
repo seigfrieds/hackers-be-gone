@@ -1,5 +1,8 @@
 "use strict";
 
+/**
+ * Return a random word from dictionary
+ */
 function generateWord(wordCase, dictionary)
 {
     //generate random LOWER CASE word
@@ -14,6 +17,9 @@ function generateWord(wordCase, dictionary)
     return word;
 }
 
+/**
+ * Generate a password according to XKCD principles
+ */
 function generatePassword()
 {
     //list of words used for password generation
@@ -49,11 +55,17 @@ function generatePassword()
     document.getElementById("copyPasswordButton").hidden = false;
 }
 
+/**
+ * Updates displayed number of words when user moves slider
+ */
 function updateNumWords()
 {
     document.getElementById("numWords").innerHTML = document.getElementById("wordSlider").value;
 }
 
+/**
+ * Copies generated password to user clipboard 
+ */
 function copyPassword()
 {
     navigator.clipboard.writeText(document.getElementById("passwordOutput").getAttribute("data-password"));
