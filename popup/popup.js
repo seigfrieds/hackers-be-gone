@@ -7,15 +7,29 @@ function generatePassword()
     let passwordBox = document.getElementById("passwordBox");
     let numWords = document.getElementById("wordSlider").value;
     let wordSeparator = document.getElementById("wordSeparatorInput").value;
+    let wordCase = document.getElementById("wordCaseSelect").value;
 
     let boxHtml = "<p>";
 
     for (let i = 0; i < numWords-1; i++)
     {
         let word = dictionary.words[Math.floor(Math.random()*(dictionary.words.length))];
+
+        if (wordCase === "titlecase") 
+            word = word.charAt(0).toUpperCase() + word.substring(1);
+        else if (wordCase === "uppercase")
+            word = word.toUpperCase();
+
         boxHtml += word + wordSeparator;
     }
-    boxHtml += dictionary.words[Math.floor(Math.random()*(dictionary.words.length))];
+    let word = dictionary.words[Math.floor(Math.random()*(dictionary.words.length))];
+
+    if (wordCase === "titlecase") 
+        word = word.charAt(0).toUpperCase() + word.substring(1);
+    else if (wordCase === "uppercase")
+        word = word.toUpperCase();
+
+    boxHtml += word;
 
     boxHtml += "</p>";
 
