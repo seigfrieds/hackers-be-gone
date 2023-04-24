@@ -25,22 +25,26 @@ function generatePassword()
     let numWords = document.getElementById("wordSlider").value;
     let wordSeparator = document.getElementById("wordSeparatorInput").value;
     let wordCase = document.getElementById("wordCaseSelect").value;
-
+    
     /**
      * Generate password, and its html
      */
-    let boxHtml = "<p>";
-
+    let password = "";
     for (let i = 0; i < numWords-1; i++)
-        boxHtml += generateWord(wordCase, dictionary) + wordSeparator;
-    boxHtml += generateWord(wordCase, dictionary);
+        password += generateWord(wordCase, dictionary) + wordSeparator;
+    password += generateWord(wordCase, dictionary);
 
-    boxHtml += "</p>";
+    document.getElementById("passwordOutput").setAttribute("data-password", password);
 
     /**
      * Output generated password 
      */
-    document.getElementById("passwordOutput").innerHTML = boxHtml;
+    document.getElementById("passwordOutput").innerHTML = "<p>" + password + "</p>";
+
+    /**
+     * Unhide copy password button
+     */
+    document.getElementById("copyPasswordButton").hidden = false;
 }
 
 function updateNumWords()
@@ -48,8 +52,14 @@ function updateNumWords()
     document.getElementById("numWords").innerHTML = document.getElementById("wordSlider").value;
 }
 
+function copyPassword()
+{
+    navigator.clipboard.writeText(document.getElementById("passwordOutput").getAttribute("data-password"));
+}
+
 document.getElementById("generatePassword").addEventListener("click", generatePassword);
 document.getElementById("wordSlider").addEventListener("input", updateNumWords);
+document.getElementById("copyPasswordButton").addEventListener("click", copyPassword);
 
 /**
  * Dictionary - encapsulate array of list of words
