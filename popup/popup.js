@@ -16,7 +16,6 @@ function generatePassword()
 {
     let dictionary = new Dictionary();
 
-    let passwordBox = document.getElementById("passwordBox");
     let numWords = document.getElementById("wordSlider").value;
     let wordSeparator = document.getElementById("wordSeparatorInput").value;
     let wordCase = document.getElementById("wordCaseSelect").value;
@@ -29,7 +28,7 @@ function generatePassword()
 
     boxHtml += "</p>";
 
-    passwordBox.innerHTML = boxHtml;
+    document.getElementById("passwordBox").innerHTML = boxHtml;
 }
 
 function updateNumWords()
