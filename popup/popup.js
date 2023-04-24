@@ -6,13 +6,14 @@ function generatePassword()
 
     let passwordBox = document.getElementById("passwordBox");
     let numWords = document.getElementById("wordSlider").value;
+    let wordSeparator = document.getElementById("wordSeparatorInput").value;
 
     let boxHtml = "<p>";
 
     for (let i = 0; i < numWords-1; i++)
     {
         let word = dictionary.words[Math.floor(Math.random()*(dictionary.words.length))];
-        boxHtml += word + "_";
+        boxHtml += word + wordSeparator;
     }
     boxHtml += dictionary.words[Math.floor(Math.random()*(dictionary.words.length))];
 
