@@ -40,7 +40,7 @@ function generatePassword()
     /**
      * Output generated password 
      */
-    document.getElementById("passwordBox").innerHTML = boxHtml;
+    document.getElementById("passwordOutput").innerHTML = boxHtml;
 }
 
 function updateNumWords()
