@@ -12,11 +12,21 @@
 
     <!-- Pop up content -->
     <body>
+        <!--Slider for number of words-->
         <div>
             <input type="range" id="wordSlider" min="1" max="10" value="4"> 
-            <label for="wordSlider">Number of Words</label>
+            <label for="wordSlider">Number of Words: </label>
             <output id="numWords">4</output> <!--set output to default value -->
         </div>
+
+        <br> <!--FORMATTING-->
+
+        <!--Text input box for word separator-->
+        <div>
+            <label for="wordSeparatorInput">Word Separator</label>
+            <input type="text" id="wordSeparatorInput" value="_"> 
+        </div>
+
         <button id="generatePassword">Generate password!</button>
         <div id="passwordBox"></div>
         <script src="popup.js"></script>
