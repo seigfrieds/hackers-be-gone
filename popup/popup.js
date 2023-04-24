@@ -27,13 +27,15 @@ function generatePassword()
     let wordCase = document.getElementById("wordCaseSelect").value;
     
     /**
-     * Generate password, and its html
+     * Generate password
      */
     let password = "";
+
     for (let i = 0; i < numWords-1; i++)
         password += generateWord(wordCase, dictionary) + wordSeparator;
     password += generateWord(wordCase, dictionary);
 
+    //password will be stored in html -> for copying!
     document.getElementById("passwordOutput").setAttribute("data-password", password);
 
     /**
