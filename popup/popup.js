@@ -3,15 +3,15 @@
 /**
  * Return a random word from dictionary
  */
-function generateWord(wordCase, dictionary)
+function generateWord(letterCase, dictionary)
 {
     //generate random LOWER CASE word
     let word = dictionary.words[Math.floor(Math.random()*(dictionary.words.length))];
 
-    //update word to proper word case if needed
-    if (wordCase === "titlecase") 
+    //update word to proper letter case if needed
+    if (letterCase === "titleCase") 
         word = word.charAt(0).toUpperCase() + word.substring(1);
-    else if (wordCase === "uppercase")
+    else if (letterCase === "upperCase")
         word = word.toUpperCase();
 
     return word;
@@ -30,7 +30,7 @@ function generatePassword()
      */
     let numWords = document.getElementById("wordSlider").value;
     let wordSeparator = document.getElementById("wordSeparatorInput").value;
-    let wordCase = document.getElementById("wordCaseSelect").value;
+    let letterCase = document.getElementById("letterCaseSelect").value;
     
     /**
      * Generate password
@@ -38,8 +38,8 @@ function generatePassword()
     let password = "";
 
     for (let i = 0; i < numWords-1; i++)
-        password += generateWord(wordCase, dictionary) + wordSeparator;
-    password += generateWord(wordCase, dictionary);
+        password += generateWord(letterCase, dictionary) + wordSeparator;
+    password += generateWord(letterCase, dictionary);
 
     //password will be stored in html -> for copying!
     document.getElementById("passwordOutput").setAttribute("data-password", password);
