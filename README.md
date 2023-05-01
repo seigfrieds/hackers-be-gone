@@ -3,7 +3,7 @@
 ## :newspaper: Description
 
 Hackers Be Gone is a [Google Extension](https://chrome.google.com/webstore/detail/hackers-be-gone/jfiekmanpnblnedjljmlogaebclfdbpp) that generates random passwords for users. 
-Passwords are generated according to the [XKCD Password Strength Comic](https://www.explainxkcd.com/wiki/index.php/936:_Password_Strength), which outlines a way to generate passwords that are both secure and easy to remember!
+Passwords are generated according to the [XKCD Password Strength Comic](https://www.explainxkcd.com/wiki/index.php/936:_Password_Strength) (Diceware method), which outlines a way to generate passwords that are both secure and easy to remember!
 
 ## :pick: Built Using
 - HTML
